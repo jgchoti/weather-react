@@ -1,7 +1,7 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  background-color: antiquewhite;
+  background-color: #f5f1fe;
   padding: 50px;
   border-radius: 30px;
   color: palevioletred;
@@ -15,7 +15,7 @@
   padding: 0 auto;
   line-height: 28px;
   font-size: 16px;
-  border: 2px solid palegreen;
+  border: 2px solid darkolivegreen;
 }
 .App button {
   padding: 5px 20px;
@@ -34,12 +34,30 @@
   background-color: white;
 }
 
-.App ul {
-  text-align: left;
-  font-size: 20px;
-  color: plum;
-  margin: 40px auto;
-}
 .icon {
   width: 60px;
+}
+.Footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.Footer a {
+  text-decoration: none;
+  color: darkgreen;
+}
+.Temperature,
+.Description {
+  display: inline-block;
+}
+.Temperature {
+  font-size: 60px;
+}
+.Description ul {
+  text-align: left;
+  font-size: 16px;
+  color: grey;
+  margin: 40px auto;
+  list-style: none;
+  line-height: 1.4;
 }
