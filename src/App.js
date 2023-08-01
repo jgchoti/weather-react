@@ -70,19 +70,24 @@ export default function App() {
           {submitted}
         </h2>
         {form}
-        <ul>
-          <li>Temperature: {weather.temperature} °C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity} %</li>
-          <li>Wind: {weather.wind} km/h</li>
-          <li>
+        <div className="Result">
+          <div className="Temperature">
             <img
               src={`https://api.openweathermap.org/img/w/${weather.icon}.png`}
               alt="icon"
               className="icon"
             />
-          </li>
-        </ul>
+            {weather.temperature} °C
+
+          </div>
+          <div className="Description">
+            <ul>
+              <li>Description: {weather.description}</li>
+              <li>Humidity: {weather.humidity} %</li>
+              <li>Wind: {weather.wind} km/h</li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   } else {
