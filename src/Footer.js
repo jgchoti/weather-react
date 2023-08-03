@@ -1,6 +1,7 @@
 import React from "react";
-import "./index.css"
+
 import ChotiLogo from "./logo_choti.png"
+import "./Footer.css"
 
 export default function Footer() {
     return (<div className="Footer">
