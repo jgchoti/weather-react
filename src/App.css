@@ -1,0 +1,82 @@
+.App {
+  font-family: sans-serif;
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  padding: 50px;
+  border-radius: 30px;
+}
+.App h1 {
+  color: rgb(198, 126, 246);
+}
+
+.App h2 {
+  color: yellowgreen;
+  margin-top: 15px;
+}
+.App .SubHeading ul {
+  font-size: 20px;
+  color: rgb(250, 221, 2);
+  list-style: none;
+  line-height: 1.4;
+  padding-left: 0;
+  text-transform: capitalize;
+}
+.App input {
+  border-radius: 5px;
+  margin-right: 20px;
+  padding: 0 auto;
+  line-height: 28px;
+  font-size: 16px;
+  border: 2px solid darkolivegreen;
+}
+.App button {
+  padding: 5px 20px;
+  line-height: 28px;
+  font-size: 16px;
+  color: white;
+  background-color: orange;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 2px solid orange;
+}
+.App button:hover {
+  color: orange;
+  background-color: white;
+}
+
+.App .icon {
+  width: 60px;
+}
+
+.App .Temperature,
+.App .Description {
+  display: inline-block;
+}
+
+.App .Temperature {
+  font-size: 60px;
+  color: palevioletred;
+  margin: auto;
+}
+.App .Description ul {
+  text-align: right;
+  font-size: 16px;
+  color: grey;
+  margin: 40px auto;
+  list-style: none;
+  line-height: 1.4;
+  padding-right: 50px;
+  padding-left: 0px;
+}
+@media screen and (max-width: 540px) {
+  .App .Temperature,
+  .App .Description ul {
+    text-align: center;
+    padding-right: 0px;
+  }
+  .App .Description ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
