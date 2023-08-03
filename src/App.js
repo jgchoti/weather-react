@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
-import "./index.css";
+import "./App.css";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -45,34 +45,49 @@ export default function App() {
   }
 
   let header = <h1>Weather App</h1>;
-  let form = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Enter a city name..."
-        aria-label="Search"
-        autoComplete="off"
-        onChange={updateCity}
-      />
+  let form = (<div className="form row">
+    <div className="col-8">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="search"
+          placeholder="Enter a city name..."
+          aria-label="Search"
+          autoComplete="off"
+          onChange={updateCity}
+          className="form-control"
+        />
+      </form></div>
+    <div className="col-4">
       <button className="searchButton" type="submit">
         Search
-      </button>
-    </form>
+      </button></div>
+
+  </div >
   );
 
   if (showWeather) {
     return (
       <div className="App">
         {header}
+        {form}
         <h2>
           <span role="img" aria-label="emoji">
             📍
           </span>{" "}
           {submitted}
         </h2>
-        {form}
-        <div className="Result">
-          <div className="Temperature">
+        <div className="SubHeading">
+          <ul>
+            <li>   <span role="img" aria-label="emoji">
+              🗓
+            </span>{" "}Thursday 14:00</li>
+            <li><span role="img" aria-label="emoji">
+              ☁️
+            </span>{" "}{weather.description}</li>
+          </ul>
+        </div>
+        <div className="Result row">
+          <div className="Temperature col-sm-6">
             <img
               src={`https://api.openweathermap.org/img/w/${weather.icon}.png`}
               alt="icon"
@@ -81,7 +96,7 @@ export default function App() {
             {weather.temperature} °C
 
           </div>
-          <div className="Description">
+          <div className="Description col-sm-6">
             <ul>
               <li>Description: {weather.description}</li>
               <li>Humidity: {weather.humidity} %</li>
