@@ -62,3 +62,9 @@
   list-style: none;
   line-height: 1.4;
 }
+.logo {
+  width: 60px;
+  position: relative;
+  padding-left: 8px;
+  top: 10px;
+}
