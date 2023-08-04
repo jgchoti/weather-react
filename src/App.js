@@ -23,7 +23,9 @@ export default function App() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      icon: response.data.weather[0].icon
+      icon: response.data.weather[0].icon,
+      date: "Thursday 14:00",
+
     });
     setShowWeather(true);
   }
@@ -46,18 +48,19 @@ export default function App() {
 
   let header = <h1>Weather App</h1>;
   let form = (<div className="form row">
-    <div className="col-8">
+    <div className="col-9">
       <form onSubmit={handleSubmit}>
         <input
           type="search"
           placeholder="Enter a city name..."
           aria-label="Search"
           autoComplete="off"
+          autoFocus="on"
           onChange={updateCity}
           className="form-control"
         />
       </form></div>
-    <div className="col-4">
+    <div className="col-3">
       <button className="searchButton" type="submit">
         Search
       </button></div>
@@ -80,7 +83,7 @@ export default function App() {
           <ul>
             <li>   <span role="img" aria-label="emoji">
               🗓
-            </span>{" "}Thursday 14:00</li>
+            </span>{" "}{weather.date}</li>
             <li><span role="img" aria-label="emoji">
               ☁️
             </span>{" "}{weather.description}</li>
@@ -90,15 +93,15 @@ export default function App() {
           <div className="Temperature col-sm-6">
             <img
               src={`https://api.openweathermap.org/img/w/${weather.icon}.png`}
-              alt="icon"
+              alt={weather.description}
               className="icon"
             />
-            {weather.temperature} °C
+            {weather.temperature}
+            <span className="Unit">°C</span>
 
           </div>
           <div className="Description col-sm-6">
             <ul>
-              <li>Description: {weather.description}</li>
               <li>Humidity: {weather.humidity} %</li>
               <li>Wind: {weather.wind} km/h</li>
             </ul>
