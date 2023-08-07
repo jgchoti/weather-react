@@ -17,11 +17,11 @@ export default function WeatherInfo(props) {
             </ul>
         </div>
         <div className="Result row">
-            <div className="Primary col-sm-6">
+            <div className="TemperatureContainer col-sm-6">
                 <WeatherIcon icon={props.data.icon} />{"  "}
                 <Temperature data={props.data.temperature} />
             </div>
-            <div className="Secondary col-sm-6">
+            <div className="DescriptionContainer col-sm-6">
                 <ul>
                     <li>Humidity: {props.data.humidity}%</li>
                     <li>Wind: {props.data.wind} km/h</li>
