@@ -8,6 +8,7 @@ import "./App.css";
 
 
 export default function App() {
+  const API_KEY = "0771d4347f81db89f7bfdf565868d867";
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [showWeather, setShowWeather] = useState(false);
@@ -34,17 +35,27 @@ export default function App() {
     setShowWeather(true);
   }
 
+  function fetchWeatherData(city) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    axios
+      .get(url)
+      .then(handleResponse)
+      .catch(handleError);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    if (city.length > 0) {
-      setCity(city);
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=0771d4347f81db89f7bfdf565868d867&units=metric`;
-      axios.get(url).then(handleResponse).catch(handleError);
+
+    const trimmedCity = city.trim();
+    if (trimmedCity.length > 0) {
+      fetchWeatherData(trimmedCity);
     } else {
       alert("Please enter a city name so I can tell you the weather 🌞");
       setCity("");
     }
   }
+
+
 
   function updateCity(event) {
     setCity(event.target.value);
