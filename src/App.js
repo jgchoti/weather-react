@@ -61,24 +61,29 @@ export default function App() {
   }
 
   let header = <h1>Weather App</h1>;
-  let form = (<div className="form row">
-    <div className="col-9">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Enter a city name..."
-          aria-label="Search"
-          autoComplete="off"
-          autoFocus="on"
-          onChange={updateCity}
-          className="form-control"
-        />
-      </form></div>
-    <div className="col-3">
-      <button className="searchButton" type="submit">
-        Search
-      </button></div>
-  </div >
+  let form = (
+    <div className="container">
+      <div className=" row">
+        <div className="col-9">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="search"
+              placeholder="Enter a city name..."
+              aria-label="Search"
+              autoComplete="off"
+              autoFocus={true}
+              onChange={updateCity}
+              className="form-control"
+            />
+          </form>
+        </div>
+        <div className="col-3">
+          <button type="submit" onClick={handleSubmit}>
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
   );
 
   if (showWeather) {
