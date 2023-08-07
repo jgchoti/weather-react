@@ -55,11 +55,11 @@
   background-color: white;
 }
 
-.App .Primary,
-.App .Secondary {
+.App .TemperatureContainer,
+.App .DescriptionContainer {
   display: inline-block;
 }
-.App .Primary .Temperature {
+.App .Temperature {
   display: inline;
   font-size: 60px;
   color: #eb5d9a;
@@ -95,7 +95,7 @@
   cursor: pointer;
   transition: all 250ms;
 }
-.App .Secondary ul {
+.App .DescriptionContainer ul {
   text-align: right;
   font-size: 18px;
   font-weight: lighter;
@@ -108,12 +108,12 @@
   padding-left: 0px;
 }
 @media screen and (max-width: 540px) {
-  .App .Primary,
-  .App .Secondary ul {
+  .App .TemperatureContainer,
+  .App .DescriptionContainer ul {
     text-align: center;
     padding-right: 0px;
   }
-  .App .Secondary ul {
+  .App .DescriptionContainer ul {
     margin-top: 0;
     margin-bottom: 0;
   }
