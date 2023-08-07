@@ -9,11 +9,11 @@ export default function Unit(props) {
     function unitChange(event) {
         event.preventDefault();
         if (activeUnit === "°C") {
-            setTemperature(props.data)
+            setTemperature(Math.round(props.data * 9 / 5) + 32)
             setActiveUnit("°F");
             setInactiveUnit("°C");
         } else {
-            setTemperature(Math.round(props.data * 9 / 5) + 32)
+            setTemperature(props.data)
             setActiveUnit("°C");
             setInactiveUnit("°F");
         }
