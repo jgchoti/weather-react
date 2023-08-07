@@ -55,46 +55,65 @@
   background-color: white;
 }
 
-.App .icon {
-  width: 60px;
-}
-
-.App .Temperature,
-.App .Description {
+.App .Primary,
+.App .Secondary {
   display: inline-block;
 }
-
-.App .Temperature {
+.App .Primary .Temperature {
+  display: inline;
   font-size: 60px;
   color: #eb5d9a;
   margin: auto;
   font-weight: bold;
+  margin-left: 16px;
 }
-.App .Temperature .Unit {
-  font-size: 20px;
+.App .Divider,
+.App .ActiveUnit {
+  font-size: 40px;
   color: orange;
   position: relative;
   bottom: 30px;
+  text-decoration: none;
 }
-.App .Description ul {
+.App .Divider {
+  color: grey;
+  left: 8px;
+  font-weight: lighter;
+}
+.App .InactiveUnit {
+  font-size: 26px;
+  color: lightblue;
+  position: relative;
+  bottom: 40px;
+  left: 8px;
+  text-decoration: none;
+}
+.App .InactiveUnit:hover {
+  color: white;
+  background-color: lightblue;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 250ms;
+}
+.App .Secondary ul {
   text-align: right;
   font-size: 18px;
   font-weight: lighter;
   line-height: 1.5;
   color: grey;
-  margin: 40px auto;
+  margin: 15px auto;
   list-style: none;
   line-height: 1.4;
-  padding-right: 50px;
+  padding-right: 40px;
   padding-left: 0px;
 }
 @media screen and (max-width: 540px) {
-  .App .Temperature,
-  .App .Description ul {
+  .App .Primary,
+  .App .Secondary ul {
     text-align: center;
     padding-right: 0px;
   }
-  .App .Description ul {
+  .App .Secondary ul {
     margin-top: 0;
     margin-bottom: 0;
   }
