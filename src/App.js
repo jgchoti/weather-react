@@ -1,18 +1,14 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import WeatherInfo from "./WeatherInfo";
-
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
-
-
 
 export default function App() {
   const API_KEY = "0771d4347f81db89f7bfdf565868d867";
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [showWeather, setShowWeather] = useState(false);
-
 
   function handleError() {
     alert(
@@ -53,8 +49,6 @@ export default function App() {
       setCity("");
     }
   }
-
-
 
   function updateCity(event) {
     setCity(event.target.value);
