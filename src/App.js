@@ -45,7 +45,6 @@ export default function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     const trimmedCity = city.trim();
     if (trimmedCity.length > 0) {
       fetchWeatherData(trimmedCity);
