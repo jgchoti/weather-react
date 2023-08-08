@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 export default function App() {
@@ -26,17 +26,15 @@ export default function App() {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
-      city: response.data.name
+      city: response.data.name,
     });
+
     setShowWeather(true);
   }
 
   function fetchWeatherData(city) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    axios
-      .get(url)
-      .then(handleResponse)
-      .catch(handleError);
+    axios.get(url).then(handleResponse).catch(handleError);
   }
 
   function handleSubmit(event) {
