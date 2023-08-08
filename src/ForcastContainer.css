@@ -1,0 +1,32 @@
+.FutureDay {
+  font-size: 18px;
+  color: grey;
+  list-style: none;
+  line-height: 1.4;
+  padding-left: 0;
+  font-weight: lighter;
+  text-align: center;
+}
+.FutureIcon {
+  padding-top: 16px;
+  text-align: center;
+}
+
+.FutureTemperature {
+  font-size: 16px;
+  color: rgb(154, 154, 154);
+  margin-top: 10px;
+  text-align: center;
+}
+.FutureTemperature .MaxTemperature {
+  font-weight: bold;
+}
+.FutureTemperature .MinTemperature {
+  font-weight: lighter;
+  padding-left: 8px;
+}
+@media screen and (max-width: 540px) {
+  .FutureDay {
+    padding-top: 18px;
+  }
+}
