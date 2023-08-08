@@ -3,19 +3,18 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
+import { API_KEY } from "./variables";
 
 export default function App() {
-  const API_KEY = "0771d4347f81db89f7bfdf565868d867";
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("antwerp");
   const [weather, setWeather] = useState({});
-  const [showWeather, setShowWeather] = useState(false);
 
   function handleError() {
     alert(
       `Cannot find a city named "${city}"❌ \n Please submit a valid city name. 🗺`
     );
     setCity("");
-    setShowWeather(false);
+    setWeather({});
   }
 
   function handleResponse(response) {
@@ -27,9 +26,10 @@ export default function App() {
       icon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
+      lat: response.data.coord.lat,
+      lon: response.data.coord.lon,
+      showWeather: true, // Set showWeather to true here
     });
-
-    setShowWeather(true);
   }
 
   function fetchWeatherData(city) {
@@ -45,6 +45,7 @@ export default function App() {
     } else {
       alert("Please enter a city name so I can tell you the weather 🌞");
       setCity("");
+      setWeather({});
     }
   }
 
@@ -52,9 +53,11 @@ export default function App() {
     setCity(event.target.value);
   }
 
-  let header = <h1>Weather App</h1>;
-  let form = (
-    <div className="container">
+  console.log("rerender");
+
+  return (
+    <div className="App">
+      <h1>Weather App</h1>
       <div className=" row">
         <div className="col-9">
           <form onSubmit={handleSubmit}>
@@ -64,34 +67,19 @@ export default function App() {
               aria-label="Search"
               autoComplete="off"
               autoFocus={true}
+              value={city}
               onChange={updateCity}
               className="form-control"
             />
           </form>
         </div>
         <div className="col-3">
-          <button type="submit" onClick={handleSubmit}>
+          <button type="button" onClick={handleSubmit}>
             Search
           </button>
         </div>
       </div>
+      {weather.showWeather && <WeatherInfo data={weather} />}
     </div>
   );
-
-  if (showWeather) {
-    return (
-      <div className="App">
-        {header}
-        {form}
-        <WeatherInfo data={weather} />
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        {header}
-        {form}
-      </div>
-    );
-  }
 }
