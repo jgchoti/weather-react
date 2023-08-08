@@ -1,4 +1,3 @@
-
 export default function formattedDate(date) {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let day = days[date.getDay()];
