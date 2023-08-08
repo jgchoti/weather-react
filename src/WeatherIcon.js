@@ -2,7 +2,7 @@ import React from "react";
 import ReactAnimatedWeather from 'react-animated-weather';
 
 export default function WeatherIcon(props) {
-
+    // Mapping of weather icon codes to ReactAnimatedWeather icons
     const codeMapping = {
         "01d": "CLEAR_DAY",
         "01n": "CLEAR_NIGHT",
@@ -21,28 +21,24 @@ export default function WeatherIcon(props) {
         "13n": "SNOW",
         "50d": "FOG",
         "50n": "FOG"
-    }
+    };
+
+    // Default values for the weather icon display
     const defaults = {
         color: '#976DF3',
         size: 55,
         animate: true
     };
 
-    if (props.icon.endsWith("n")) {
-        return <ReactAnimatedWeather
-            icon={codeMapping[props.icon]}
-            color={"grey"}
-            size={defaults.size}
-            animate={defaults.animate}
-        />
-    } else {
-        return <ReactAnimatedWeather
-            icon={codeMapping[props.icon]}
-            color={defaults.color}
-            size={defaults.size}
-            animate={defaults.animate}
-        />
-    }
+    // Determine whether it's day or night based on the icon code
+    const isNightIcon = props.icon.endsWith("n");
 
+    return (
+        <ReactAnimatedWeather
+            icon={codeMapping[props.icon]}
+            color={isNightIcon ? "grey" : defaults.color}
+            size={defaults.size}
+            animate={defaults.animate}
+        />
+    );
 }
-
