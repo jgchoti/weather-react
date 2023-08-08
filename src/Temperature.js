@@ -1,40 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Temperature(props) {
-    const [activeUnit, setActiveUnit] = useState("metric");
+    const temperatureC = props.data;
     const temperatureF = Math.round(props.data * 9 / 5) + 32;
 
-    function unitChange(event) {
-        event.preventDefault();
-        if (activeUnit === "metric") {
-            setActiveUnit("imperial")
-        } else {
-            setActiveUnit("metric");
-
-        }
-    }
-    let temperatureDisplay;
-    if (activeUnit === "metric") {
-        temperatureDisplay = (< div className="Temperature" >
-            <span>{props.data}</span>
-            <span className="ActiveUnit">°C</span>
+    return (
+        <div className="Temperature">
+            <span>{props.activeUnit === "metric" ? temperatureC : temperatureF}</span>
+            <span className="ActiveUnit">{props.activeUnit === "metric" ? "°C" : "°F"}</span>
             <span className="Divider">|</span>
-            <a href="/" onClick={unitChange} className="InactiveUnit">
-                °F
+            <a href="/" onClick={props.unitChange} className="InactiveUnit">
+                {props.activeUnit === "metric" ? "°F" : "°C"}
             </a>
-        </div >
-        )
-    }
-    else {
-        temperatureDisplay = (<div className="Temperature">
-            <span>{temperatureF}</span>
-            <span className="ActiveUnit">°F</span>
-            <span className="Divider">|</span>
-            <a href="/" onClick={unitChange} className="InactiveUnit">
-                °C
-            </a>
-        </div>)
-    }
-
-    return temperatureDisplay;
+        </div>
+    );
 }
