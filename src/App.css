@@ -111,6 +111,12 @@
   padding-left: 0px;
 }
 @media screen and (max-width: 540px) {
+  .App {
+    text-align: center;
+  }
+  .App h1 {
+    margin-bottom: 14px;
+  }
   .App .TemperatureContainer,
   .App .DescriptionContainer ul {
     text-align: center;
