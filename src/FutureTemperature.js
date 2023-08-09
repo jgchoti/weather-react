@@ -9,8 +9,8 @@ export default function FutureTemperature(props) {
 
     }
     function generateTemperatureElement(day, index) {
-        const maxTemp = convertTemperature(day.maxTemp);
-        const minTemp = convertTemperature(day.minTemp);
+        const maxTemp = convertTemperature(day.temp.max);
+        const minTemp = convertTemperature(day.temp.min);
         return (
             <div className="FutureTemperature col" key={index}>
                 <span className="MaxTemperature">{maxTemp}°</span>
@@ -19,7 +19,7 @@ export default function FutureTemperature(props) {
         );
     }
 
-    const temperatureElements = props.forecast.map(generateTemperatureElement);
+    const temperatureElements = props.forecast.slice(1, 6).map(generateTemperatureElement);
     return <div className="row">{temperatureElements}</div>;
 }
 
