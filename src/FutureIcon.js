@@ -31,7 +31,7 @@ export default function FutureIcon(props) {
     };
 
     function generateIconElement(day, index) {
-        const iconIndex = day.icon;
+        const iconIndex = day.weather[0].icon;
         return (
             <div className="FutureIcon col" key={index}>
                 <ReactAnimatedWeather
@@ -44,6 +44,6 @@ export default function FutureIcon(props) {
         );
     }
 
-    const iconElements = props.forecast.map(generateIconElement);
+    const iconElements = props.forecast.slice(1, 6).map(generateIconElement);
     return <div className="row">{iconElements}</div>;
 }
