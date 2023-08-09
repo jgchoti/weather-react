@@ -3,10 +3,11 @@ import "./ForcastContainer.css"
 
 export default function FutureDay(props) {
     const date = new Date(props.currentDate);
+    let day = date.getDay()
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    function generateDayElement(day, index) {
-        const dayIndex = (date.getDay() + index + 1) % 7;
+    function generateDayElement(props, index) {
+        const dayIndex = (day + index + 1) % 7;
         return <div className="FutureDay col" key={dayIndex}>{days[dayIndex]}</div>;
     }
 
