@@ -72,7 +72,7 @@
 }
 .App .Divider,
 .App .ActiveUnit {
-  font-size: 40px;
+  font-size: 35px;
   color: orange;
   position: relative;
   bottom: 30px;
@@ -84,13 +84,13 @@
   font-weight: lighter;
 }
 .App .InactiveUnit {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
   color: #68d9e7;
   background-color: transparent;
   border-radius: 6px;
   position: relative;
-  bottom: 40px;
+  bottom: 35px;
   left: 8px;
   border: 0;
 }
