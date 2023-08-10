@@ -29,4 +29,14 @@
   .FutureDay {
     padding-top: 18px;
   }
+  .FutureIcon canvas {
+    width: 35px;
+  }
+  .FutureTemperature {
+    font-size: 14px;
+    padding: 0 !important;
+  }
+  .FutureTemperature .MinTemperature {
+    padding-left: 2px;
+  }
 }
