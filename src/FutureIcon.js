@@ -25,7 +25,7 @@ export default function FutureIcon(props) {
     };
 
     const defaults = {
-        color: "lightblue",
+        color: "#68d9e7",
         size: 45,
         animate: true,
     };
