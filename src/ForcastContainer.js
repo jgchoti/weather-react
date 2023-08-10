@@ -19,7 +19,7 @@ export default function ForcastContainer(props) {
 
   useEffect(() => {
     fetchForecastData();
-  }, []);
+  }, [props.data.lon + props.data.lat]);
 
   function fetchForecastData() {
     const lon = props.data.lon;
