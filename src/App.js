@@ -74,7 +74,7 @@ export default function App() {
           </form>
         </div>
         <div className="col-3">
-          <button type="button" onClick={handleSubmit}>
+          <button type="button" onClick={handleSubmit} className="SearchButton">
             Search
           </button>
         </div>
