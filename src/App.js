@@ -6,7 +6,7 @@ import "./App.css";
 import { API_KEY } from "./variables";
 
 export default function App() {
-  const [city, setCity] = useState("antwerp");
+  const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
 
   function handleError() {
