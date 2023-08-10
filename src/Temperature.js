@@ -9,9 +9,9 @@ export default function Temperature(props) {
             <span>{props.activeUnit === "metric" ? temperatureC : temperatureF}</span>
             <span className="ActiveUnit">{props.activeUnit === "metric" ? "°C" : "°F"}</span>
             <span className="Divider">|</span>
-            <a href="/" onClick={props.unitChange} className="InactiveUnit">
+            <button href="/" onClick={props.unitChange} className="InactiveUnit">
                 {props.activeUnit === "metric" ? "°F" : "°C"}
-            </a>
+            </button>
         </div>
     );
 }
