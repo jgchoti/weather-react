@@ -41,7 +41,8 @@
   border: 2px solid #68d9e7;
   margin-bottom: 18px;
 }
-.App .SearchButton {
+.App .SearchButton,
+.App .LocationButton {
   padding: 5px 20px;
   line-height: 28px;
   font-size: 16px;
@@ -58,6 +59,16 @@
   background-color: white;
 }
 
+.App .LocationButton {
+  padding: 6px 10px;
+  background-color: #68d9e7;
+  border: 2px solid #68d9e7;
+  border-top-left-radius: 10px 10px;
+}
+.App .LocationButton:hover {
+  color: #68d9e7;
+  background-color: white;
+}
 .App .TemperatureContainer,
 .App .DescriptionContainer {
   display: inline-block;
