@@ -8,12 +8,14 @@ import { API_KEY } from "./variables";
 export default function App() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
+  const [loadingLocation, setLoadingLocation] = useState(false);
 
   function handleError() {
     alert(
       `Cannot find a city named "${city}"❌ \n Please submit a valid city name. 🗺`
     );
     setCity("");
+    setLoadingLocation(false);
     setWeather({});
   }
 
@@ -36,7 +38,23 @@ export default function App() {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
     axios.get(url).then(handleResponse).catch(handleError);
   }
-
+  function fetchWeatherDataByLocation(latitude, longitude) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`;
+    axios.get(url).then(handleResponse).catch(handleError);
+  }
+  function handleUseLocationClick() {
+    setLoadingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        fetchWeatherDataByLocation(latitude, longitude);
+      },
+      (error) => {
+        alert("Error getting your location.");
+        setLoadingLocation(false);
+      }
+    );
+  }
   function handleSubmit(event) {
     event.preventDefault();
     const trimmedCity = city.trim();
@@ -53,13 +71,21 @@ export default function App() {
     setCity(event.target.value);
   }
 
-  console.log("rerender");
-
   return (
     <div className="App">
       <h1>Weather App</h1>
       <div className=" row">
-        <div className="col-9">
+        <div className=" col-1">
+          <button
+            className="LocationButton"
+            type="button"
+            onClick={handleUseLocationClick}
+            disabled={loadingLocation}
+          >
+            📍
+          </button>
+        </div>{" "}
+        <div className="col-8">
           <form onSubmit={handleSubmit}>
             <input
               type="search"
@@ -79,6 +105,7 @@ export default function App() {
           </button>
         </div>
       </div>
+
       {weather.showWeather && <WeatherInfo data={weather} />}
     </div>
   );
