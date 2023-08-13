@@ -25,6 +25,7 @@
   font-weight: lighter;
   padding-left: 8px;
 }
+
 @media screen and (max-width: 540px) {
   .FutureDay {
     padding-top: 18px;
