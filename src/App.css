@@ -36,7 +36,6 @@
   border-radius: 0;
   border-top-right-radius: 10px 10px;
   border-bottom-right-radius: 10px 10px;
-  margin-right: 20px;
   padding: 0 auto;
   line-height: 28px;
   font-size: 16px;
@@ -62,7 +61,7 @@
 }
 
 .App .LocationButton {
-  padding: 6px 10px;
+  padding: 6px 15px;
   background-color: #68d9e7;
   border: 2px solid #68d9e7;
   border-radius: 0;
