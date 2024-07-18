@@ -126,6 +126,7 @@
   padding-right: 28px;
   padding-left: 0px;
 }
+
 @media screen and (max-width: 540px) {
   .App {
     text-align: center;
@@ -141,5 +142,13 @@
   .App .DescriptionContainer ul {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  .App .LocationButton {
+    padding: 6px 4px;
+  }
+
+  .App .SearchButton {
+    padding: 5px 14px;
   }
 }
