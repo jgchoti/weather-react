@@ -82,7 +82,7 @@ export default function App() {
             onClick={handleUseLocationClick}
             disabled={loadingLocation}
           >
-            📍
+            <span role="img" aria-label="location">📍</span>
           </button>
         </div>{" "}
         <div className="col-8">
@@ -99,7 +99,7 @@ export default function App() {
             />
           </form>
         </div>
-        <div className="col-3">
+        <div className="col-3 .SearchButtonWrapper">
           <button type="button" onClick={handleSubmit} className="SearchButton">
             Search
           </button>
